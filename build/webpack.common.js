@@ -1,7 +1,7 @@
 const path = require('path');
 
 module.exports = {
-    entry: './src/main.js',
+    entry: './example/main.js',
     output: {
         path: path.resolve(__dirname, './../dist'),
         publicPath: '/dist/',
@@ -17,7 +17,22 @@ module.exports = {
                 test: /\.js$/,
                 loader: 'babel-loader',
                 exclude: /node_modules/
+            },
+            {
+                test: /\.svg$/,
+                use: [
+                    {
+                        loader: 'raw-loader'
+                    }
+                ]
             }
+        ]
+    },
+    // Needed to resolve paths starting from the root of the directory.
+    resolve: {
+        modules: [
+            path.resolve('./'),
+            path.resolve('./node_modules')
         ]
     }
 };

@@ -15,6 +15,7 @@ module.exports = merge(config, {
             root: "vue"
         }
     },
+    devtool: '#source-map',
     plugins: [
         // short-circuits all Vue.js warning code
         new webpack.DefinePlugin({
